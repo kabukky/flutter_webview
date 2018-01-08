@@ -49,6 +49,7 @@
         }
         self.webViewController = [[WebViewController alloc] initWithPlugin:self navItems:buttons allowMedia:mediaPlayback];
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.webViewController];
+        navigationController.slideFromSide = true;
         [self.hostViewController presentViewController:navigationController animated:true completion:nil];
         if (tintColor) {
             navigationController.navigationBar.tintColor = tintColor;
