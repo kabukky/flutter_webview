@@ -48,9 +48,14 @@
             }
         }
         self.webViewController = [[WebViewController alloc] initWithPlugin:self navItems:buttons allowMedia:mediaPlayback];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:nil];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.webViewController];
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromRight;
+        [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
         [self.hostViewController presentViewController:navigationController animated:false completion:nil];
-        [navigationController pushViewController:self.webViewController animated:true];
         if (tintColor) {
             navigationController.navigationBar.tintColor = tintColor;
         }
@@ -61,7 +66,13 @@
         result(@"");
         return;
     } else if ([call.method isEqualToString:@"dismiss"]) {
-        [self.webViewController dismissViewControllerAnimated:true completion:nil];
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.3;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromLeft;
+        [self.webViewController.view.window.layer addAnimation:transition forKey:nil];
+        [self.webViewController dismissViewControllerAnimated:false completion:nil];
         result(@"");
     } else if ([call.method isEqualToString:@"load"]) {
         [self performLoad:call.arguments];
