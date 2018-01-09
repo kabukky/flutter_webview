@@ -72,7 +72,7 @@
         // transition.type = kCATransitionPush;
         // transition.subtype = kCATransitionFromLeft;
         // [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
-        [self.webViewController dismissViewControllerAnimated:false completion:nil];
+        [self.webViewController dismissViewControllerAnimated:true completion:nil];
         result(@"");
     } else if ([call.method isEqualToString:@"load"]) {
         [self performLoad:call.arguments];
