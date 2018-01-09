@@ -48,7 +48,7 @@
             }
         }
         self.webViewController = [[WebViewController alloc] initWithPlugin:self navItems:buttons allowMedia:mediaPlayback];
-        self.WebViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        self.webViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.webViewController];
         [self.hostViewController presentViewController:navigationController animated:true completion:nil];
         if (tintColor) {
