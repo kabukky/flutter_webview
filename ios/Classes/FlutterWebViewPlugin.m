@@ -66,12 +66,12 @@
         result(@"");
         return;
     } else if ([call.method isEqualToString:@"dismiss"]) {
-        CATransition *transition = [CATransition animation];
-        transition.duration = 0.3;
-        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        transition.type = kCATransitionPush;
-        transition.subtype = kCATransitionFromLeft;
-        [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
+        // CATransition *transition = [CATransition animation];
+        // transition.duration = 0.3;
+        // transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        // transition.type = kCATransitionPush;
+        // transition.subtype = kCATransitionFromLeft;
+        // [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
         [self.webViewController dismissViewControllerAnimated:false completion:nil];
         result(@"");
     } else if ([call.method isEqualToString:@"load"]) {
