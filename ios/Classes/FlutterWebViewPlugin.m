@@ -48,7 +48,7 @@
             }
         }
         self.webViewController = [[WebViewController alloc] initWithPlugin:self navItems:buttons allowMedia:mediaPlayback];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:self.webViewController];
+        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:nil];
         [self.hostViewController presentViewController:navigationController animated:true completion:nil];
         if (tintColor) {
             navigationController.navigationBar.tintColor = tintColor;
