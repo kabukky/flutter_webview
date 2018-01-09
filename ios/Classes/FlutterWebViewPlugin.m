@@ -52,12 +52,6 @@
             options:UIViewAnimationOptionTransitionCurlUp //change to whatever animation you like
             animations:^ { [self.hostViewController addSubview:self.webViewController]; }
             completion:nil];
-        if (tintColor) {
-            navigationController.navigationBar.tintColor = tintColor;
-        }
-        if (barTintColor) {
-            navigationController.navigationBar.barTintColor = barTintColor;
-        }
         [self performSelector:@selector(performLoad:) withObject:call.arguments afterDelay:0.4];
         result(@"");
         return;
