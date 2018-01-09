@@ -54,7 +54,7 @@
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         transition.type = kCATransitionPush;
         transition.subtype = kCATransitionFromRight;
-        [self.view.window.layer addAnimation:transition forKey:nil];
+        [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
         [self.hostViewController presentViewController:navigationController animated:false completion:nil];
         if (tintColor) {
             navigationController.navigationBar.tintColor = tintColor;
@@ -71,7 +71,7 @@
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         transition.type = kCATransitionPush;
         transition.subtype = kCATransitionFromLeft;
-        [self.view.window.layer addAnimation:transition forKey:nil];
+        [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
         [self.webViewController dismissViewControllerAnimated:false completion:nil];
         result(@"");
     } else if ([call.method isEqualToString:@"load"]) {
