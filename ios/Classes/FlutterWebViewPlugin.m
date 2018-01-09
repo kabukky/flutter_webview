@@ -71,8 +71,8 @@
         transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
         transition.type = kCATransitionPush;
         transition.subtype = kCATransitionFromLeft;
-        [self.webViewController.view.window.layer addAnimation:transition forKey:nil];
-        [self.webViewController dismissViewControllerAnimated:false completion:nil];
+        [self.hostViewController.view.window.layer addAnimation:transition forKey:nil];
+        [self.hostViewController dismissViewControllerAnimated:false completion:nil];
         result(@"");
     } else if ([call.method isEqualToString:@"load"]) {
         [self performLoad:call.arguments];
